@@ -1,23 +1,19 @@
-//part 3
 import React from 'react'
-import {UserConsumer}  from '../userContext'
-  
+import {UserConsumer} from '../userContext'
 
  const LoggInNav = () => {
     return (
         <UserConsumer>
-
-         {({user,logout})=>(
-              <div>
-              <p>hello {user.name} logged in with {user.email}</p>
-              <ul>
-                  <li style={{cursor:'pointer',backgroundColor:'red'}} onClick={logout}>Logout</li>
-                  <li>dashboard</li>
-              </ul>
-             
-          </div>
-         )}
-       
+             {({logout,user})=>(
+           <div>
+            <p>hello {user.name} logged in with {user.email}</p>
+            <ul>
+                <li style={{cursor:'pointer',backgroundColor:'red'}} onClick={logout}>Logout</li>
+                <li>dashboard</li>
+            </ul>
+           
+        </div> 
+        )}  
         </UserConsumer>
     )
 }
@@ -32,52 +28,54 @@ const LoggOutNav = () => {
                 <li style={{cursor:'pointer',backgroundColor:"green"}} onClick={login}>Login</li>
                 <li>register</li>
             </ul>
-        </div> 
-            )}
+        </div>  
+            )
+            }
 
         </UserConsumer>
-        
+       
     )
 }
 
 
  const BasicNav = () => {
-       return (
-            <UserConsumer> 
-                {({isAuthenticated})=>(
-                     <>
-             {isAuthenticated ? <LoggInNav/>:<LoggOutNav/>}
-               </>
-                ) }
-                 
-            </UserConsumer>
-       )
+       return(
+     <UserConsumer>
   
-    
+       { ({isAuthenticated})=>(
+     <>
+        {  isAuthenticated ? <LoggInNav /> : <LoggOutNav /> }
+      </>
+       )}
+           
+    </UserConsumer>
+       )    
 }
 export default BasicNav
 
 
+
+
+// --------------part 2------------------------------------------------------------
 // import React from 'react'
-// import  Context  from '../userContext'
-  
+// import Context from '../userContext'
 
 //  const LoggInNav = () => {
 //     return (
 //         <Context.Consumer>
-
-//          {({user,logout})=>(
-//               <div>
-//               <p>hello {user.name} logged in with {user.email}</p>
-//               <ul>
-//                   <li style={{cursor:'pointer',backgroundColor:'red'}} onClick={logout}>Logout</li>
-//                   <li>dashboard</li>
-//               </ul>
-             
-//           </div>
-//          )}
-       
+//              {({logout,user})=>(
+//            <div>
+//             <p>hello {user.name} logged in with {user.email}</p>
+//             <ul>
+//                 <li style={{cursor:'pointer',backgroundColor:'red'}} onClick={logout}>Logout</li>
+//                 <li>dashboard</li>
+//             </ul>
+           
+//         </div> 
+//         )}  
 //         </Context.Consumer>
+     
+        
 //     )
 // }
 
@@ -91,68 +89,27 @@ export default BasicNav
 //                 <li style={{cursor:'pointer',backgroundColor:"green"}} onClick={login}>Login</li>
 //                 <li>register</li>
 //             </ul>
-//         </div> 
-//             )}
+//         </div>  
+//             )
+//             }
 
 //         </Context.Consumer>
-        
+       
 //     )
 // }
 
 
 //  const BasicNav = () => {
-//        return (
-//             <Context.Consumer> 
-//                 {({isAuthenticated})=>(
-//                      <>
-//              {isAuthenticated ? <LoggInNav/>:<LoggOutNav/>}
-//                </>
-//                 ) }
-                 
-//             </Context.Consumer>
-//        )
+//        return(
+//      <Context.Consumer>
   
-    
-// }
-// export default BasicNav
-
-
-
-
-
-// import React from 'react'
-
-//  const LoggInNav = ({logout,user}) => {
-//     return (
-//         <div>
-//             <p>hello {user.name} logged in with {user.email}</p>
-//             <ul>
-//                 <li style={{cursor:'pointer',backgroundColor:'red'}} onClick={logout}>Logout</li>
-//                 <li>dashboard</li>
-//             </ul>
+//        { ({isAuthenticated})=>(
+//      <>
+//         {  isAuthenticated ? <LoggInNav /> : <LoggOutNav /> }
+//       </>
+//        )}
            
-//         </div>
-//     )
-// }
-
-// const LoggOutNav = ({login}) => {
-//     return (
-//         <div>
-//            <p>please checked login button below</p>
-//             <ul>
-//                 <li style={{cursor:'pointer',backgroundColor:"green"}} onClick={login}>Login</li>
-//                 <li>register</li>
-//             </ul>
-//         </div>
-//     )
-// }
-
-
-//  const BasicNav = ({login,logout,isAuthenticated,user}) => {
-//     if(isAuthenticated){
-//              return <LoggInNav logout={logout} user={user}/>
-//     }
-//      return <LoggOutNav  login={login}/>
-    
+//     </Context.Consumer>
+//        )    
 // }
 // export default BasicNav

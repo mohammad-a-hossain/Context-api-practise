@@ -1,12 +1,12 @@
-//part 3
+ //------------part 3--------------------------------------------
 
-import React, { createContext,Component } from 'react'
+import React, {createContext,Component} from 'react'
 
-let Context = null
+   let Context = null
 
-const {Provider, Consumer} = Context =createContext()
+   const {Provider , Consumer } = (Context= createContext())
 
-class UserProvider extends Component {
+   class UserProvider extends Component{
     state={
         user:{
           name:'m a hossain',
@@ -29,25 +29,21 @@ class UserProvider extends Component {
         user.language.push(item)
         this.setState({user})
       }
-
       render(){
           return(
-              <Provider value={{...this.state,
-                login:this.login,
-                logout:this.logout,
-                addShowCase:this.addShowCase }}>
-                    {this.props.children}
-
+              <Provider value={ {...this.state,login:this.login,logout:this.logout,addShowCase:this.addShowCase}}>
+            {this.props.children}
               </Provider>
           )
-      }
-
-}
-
-
-export {UserProvider, Consumer as UserConsumer, Context as UserContext} //naming export
+      } 
+    
+   }
+   export {UserProvider, Consumer as UserConsumer, Context as UserContext}
 
 
+
+
+// part -----------2----------------------------------------------------
 // import { createContext } from 'react'
 
 // const Context = createContext()
